@@ -7,7 +7,7 @@ simple web scraping to data extraction
 
 ## What is it for??
 - for information on contracts scanned in bscan such as:
-```
+```javascript
 address, contract_name, compiler, balance
 ```
 - all data saved in data.txt, like this: 
