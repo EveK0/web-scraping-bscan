@@ -1,9 +1,10 @@
 import requestPromise from "request-promise";
 import { zip } from "pythonic";
 import cheerio from "cheerio";
-
+import fs from "fs";
+import util from "util";
 let count = 0;
-for (let i = 1; i <= 5; i++) {
+for (let i = 0; i <= 5; i++) {
   const url = `https://bscscan.com/contractsVerified/${count}?ps=100`;
   requestPromise(url)
     .then(function (html) {
@@ -46,7 +47,7 @@ for (let i = 1; i <= 5; i++) {
           compiler: compiler_name,
           balance: balance_name,
         };
-        console.log(contract_info);
+        fs.appendFileSync("./data.txt", util.inspect(contract_info), "utf-8");
       }
     })
     .catch(function (err) {
